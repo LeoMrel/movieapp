@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
             <div className="font-semibold place-content-end
             text-gray-400 m-4 h-full flex flex-col text-sm">
-            <h1 className="font-semibold text-lg text-white my-2">Check out this project&apos;s <a href="https://github.com/LeoMrel/TMDB-mockup" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-400">github</a></h1>
+            <h1 className="font-semibold text-lg text-white my-2">Check out this project&apos;s <a href="https://github.com/LeoMrel/movieapp" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-400">github</a></h1>
             <h1>This is a mockup application based on The Movie DataBase, intended to be just a personal project</h1>
             <h1>All data, images and assets belong to <a className="hover:text-blue-400 text-blue-300" target="_blank" rel="noreferrer" href="https://www.themoviedb.org">The Movie DataBase — (TMDB)</a></h1>
             <h1>Social Media Icons by <a className="hover:text-blue-400 text-blue-300" target="_blank" rel="noreferrer" href="https://icons8.com/">Icons8</a></h1>
