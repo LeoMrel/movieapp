@@ -35,7 +35,7 @@ const Navbar = () => {
         bg-blue-dark sticky shadow-2xl z-50 top-0 px-4 py-2">
         <div className="container flex justify-between 
         xl:justify-start place-items-center max-w-7xl">
-        <a href={"/"} className="mt-2 w-50 min-w-max xl:mr-3">
+        <a href={"/"} className="mt-2 w-50 xl:mr-3">
             <Image
             alt="Home" 
             src={Asset3}
