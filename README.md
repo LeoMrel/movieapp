@@ -9,4 +9,4 @@ This is a mockup application based on <a href="https://www.themoviedb.org/" targ
 <li>Static Site Generation & Incremental Static Generation</li>
 </ul>
 
-<h4>You can check out the demo <a href="https://ntmdb.vercel.app/">here</a></h4>
+<h4>You can check out the demo <a href="https://ntmdb-nu.vercel.app/">here</a></h4>
