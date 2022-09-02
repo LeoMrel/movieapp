@@ -11,9 +11,9 @@ const Footer = () => {
 
 
     return (
-        <footer className="h-max 2xl:fixed left-0 right-0 bottom-0 
-        min-w-screen text-white bg-blue-dark place-content-center flex relative">
-        <div className="container w-full max-w-7xl flex flex-col place-content-center">
+        <footer className="h-max left-0 right-0 bottom-0 
+        min-w-screen text-white bg-blue-dark place-content-center flex">
+        <div className="w-full max-w-7xl flex flex-col place-content-center">
             <div className="justify-self-center flex flex-col">
             <div className="m-4 mt-9 max-w-2xl place-self-start relative font-semibold">
                 <h1 className="text-xl">Contact me on</h1>
@@ -43,4 +43,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;

@@ -94,7 +94,8 @@ const Details = ({data}) => {
         <h1 className="ml-4 my-8 font-semibold">
             There are no recommendations avaliable for this {movie ? "movie" : "show"}</h1>
             : recommendations.results.map(media => {
-                const id = encodeURIComponent(`${media.id}-${media.title || media.name}`)
+                const id = encodeURIComponent(`${media.id}-${media.title || media.name}`);
+                const mediaScore = Math.round(media.vote_average * 10) / 10;
                 
                 return (
                     <div 
@@ -109,8 +110,8 @@ const Details = ({data}) => {
                             text-white z-10
                             absolute -bottom-1 -rigdht-2 h-12 w-12 
                             place-items-center justify-center bg-gray-800
-                            score font-bold ${score(Math.round(media.vote_average * 10) / 10)}`}>
-                                {(Math.round(media.vote_average * 10) / 10)}
+                            score font-bold ${score(mediaScore)}`}>
+                                {mediaScore}
                             </div>
                         <Image 
                         src={media.backdrop_path ? `${process.env.NEXT_PUBLIC_RECOMMENDED + media.backdrop_path}` : default_movie}

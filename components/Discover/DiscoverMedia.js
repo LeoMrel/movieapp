@@ -4,7 +4,6 @@ import { getMostPopular, fetcher } from "../../utils/utils";
 import Head from "next/head";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import useSWR from "swr";
-import Footer from "../Index/Footer";
 
 const styling = {
     backgroundImage: "url(https://www.themoviedb.org/assets/2/v4/account_pipes/light_blue-a230b623827400e967c6eb7241d88086f2eb9264c0789d0dab15ae6f1df1421a.svg)",

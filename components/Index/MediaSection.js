@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { score } from "../../utils/utils";
-import Footer from "./Footer";
 
 const Trending = ({data, shows, movies}) => {
     const [media, setMedia] = useState(data);
@@ -39,6 +38,7 @@ const Trending = ({data, shows, movies}) => {
         {media.results.map(media => {
             const id = encodeURIComponent(`${media.id}-${media.title || media.name}`);
             const isMovie = media.hasOwnProperty("release_date");
+            const mediaScore = Math.round(media.vote_average * 10) / 10
             
                 return (
                     <div 
@@ -59,8 +59,8 @@ const Trending = ({data, shows, movies}) => {
                             text-white
                             absolute -bottom-1 -left-2 h-12 w-12 
                             place-items-center justify-center bg-gray-800
-                            score font-bold ${score(media.vote_average)}`}>
-                                {media.vote_average}
+                            score font-bold ${score(mediaScore)}`}>
+                                {mediaScore}
                             </div>
                             </div>
                             <h1 className="min-w-full max-w-min 

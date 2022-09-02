@@ -14,7 +14,8 @@ const Preview = ({media, crew}) => {
 
     const data = media.release_dates && media.release_dates.results.filter(e => e.iso_3166_1 === "US").map(e => e.release_dates[0])
     const info = data && data[0];
-    const runtime = (n) => `${n / 60 ^ 0}`.slice(-2) + "h " + ('0' + n % 60).slice(-2) + "m"
+    const mediaScore = Math.round(media.vote_average * 10) / 10;
+    const runtime = (n) => `${n / 60 ^ 0}`.slice(-2) + "h " + ('0' + n % 60).slice(-2) + "m";
 
     const date = media.release_date ? new Date(media.release_date) : media.first_air_date ? new Date(media.first_air_date) : null
     const dd = date && String(date.getDate()).padStart(2, '0');
@@ -37,8 +38,8 @@ const Preview = ({media, crew}) => {
         <div className={`rounded-full flex
         text-white absolute -bottom-1 -right-6 h-20 w-20 
         place-items-center justify-center font-bold bg-gray-800 score
-        ${score(media.vote_average)}`}>
-        {media.vote_average}
+        ${score(mediaScore)}`}>
+        {mediaScore}
         </div> 
         </div>
         <div className="container md:mt-14 flex-col flex md:max-w-4xl md:px-4">
