@@ -7,7 +7,7 @@ const PopularMedia = ({object}) => {
     const name = object.title || object.name;
     const date = object.release_date || object.first_air_date;
     const image = object.poster_path;
-    const userScore = object.vote_average;
+    const userScore = Math.round(object.vote_average * 10) / 10;
     const id = encodeURIComponent(`${object.id}-${name}`)
     const isMovie = object.hasOwnProperty("release_date") || object.hasOwnProperty("original_title");
 

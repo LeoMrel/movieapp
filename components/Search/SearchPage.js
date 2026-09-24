@@ -108,11 +108,12 @@ const SearchPage = ({data, nextPageData, error, queryInfo}) => {
                 </h1>
                 </div>
             : results.results && results.results.map(object => {
-               return (
-                   <SearchResults 
-                   key={object.id} 
-                   object={object} />
-               )})}
+                return (
+                    <SearchResults 
+                    key={object.id} 
+                    object={object}
+                    typeOfSearch={typeOfSearch} />
+                )})}
             {maxPage !== 1 &&
                 <PaginationBar 
                     projectPage='search'

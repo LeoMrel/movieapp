@@ -3,7 +3,7 @@ import Link from "next/link";
 import default_movie from "../../public/default_movie.png";
 import default_icon from "../../public/default_icon.png";
 
-const SearchResults = ({object}) => {
+const SearchResults = ({object, typeOfSearch}) => {
     const name = object.title || object.name;
     const date = object.release_date || object.first_air_date;
     const image = object.poster_path || object.profile_path;
@@ -12,10 +12,10 @@ const SearchResults = ({object}) => {
     const overview = object.overview && object.overview;
     const id = encodeURIComponent(`${object.id}-${name}`)
 
-    const isMovie = object.hasOwnProperty("release_date") || object.hasOwnProperty("original_title");
-    const isTvShow = object.hasOwnProperty("first_air_date") || object.hasOwnProperty("original_name");
-    const isPeople = object.hasOwnProperty("profile_path");
-    const isKeyword = !object.hasOwnProperty("release_date") && !object.hasOwnProperty("first_air_date") && !object.hasOwnProperty("profile_path");
+    const isMovie = typeOfSearch === "movie";
+    const isTvShow = typeOfSearch === "tv";
+    const isPeople = typeOfSearch === "person";
+    const isKeyword = typeOfSearch === "keyword";
 
     return (
         <Link 
@@ -25,8 +25,8 @@ const SearchResults = ({object}) => {
         : `/keywords/${id}`}
         key={id}
         passHref>
-        <a 
-        className={`${isMovie || isTvShow ? 'rounded-xl shadow-xl border bg-white' 
+         <a 
+        className={`${isMovie || isTvShow || isPeople ? 'rounded-xl shadow-xl border bg-white' 
         : 'max-w-max shadow-none'} flex`}>
         <div className={`flex ${isPeople && 'max-h-24'}`}>
         {!isKeyword &&
