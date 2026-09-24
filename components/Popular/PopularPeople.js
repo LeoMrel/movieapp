@@ -6,7 +6,7 @@ import PaginationBar from "../Pagination/Pagination";
 const Popular = ({data}) => {
     const people = data.results;
     const currentPage = data.page;
-    const maxPage = data.total_pages;
+    const maxPage = Math.min(data.total_pages, 500); // TMDB no permite pedir más allá de la página 500
 
     const pages = [];
     for(let i = 1; i <= maxPage; i ++) {

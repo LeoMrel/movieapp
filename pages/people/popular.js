@@ -18,11 +18,10 @@ const PeoplePage = ({data, error}) => {
 
 export default PeoplePage
 
-
 export async function getServerSideProps({query}) {
     const currentPage = query.page || 1;
 
-    const res = await fetch(`${process.env.POPULAR_PEOPLE}&page=${query.page}`);
+    const res = await fetch(`${process.env.POPULAR_PEOPLE}&page=${currentPage}`);
 
     if(res.status !== 200) return {props: {error: true}};
 
