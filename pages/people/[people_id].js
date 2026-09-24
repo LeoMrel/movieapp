@@ -38,10 +38,27 @@ export async function getStaticProps({params}) {
     const data = res.map(async result => await result.json())
     const [person, acted_in] = await Promise.all(data)
 
+    const trimCredit = (media) => ({
+    id: media.id,
+    title: media.title ?? null,
+    name: media.name ?? null,
+    media_type: media.media_type,
+    poster_path: media.poster_path ?? null,
+    release_date: media.release_date ?? null,
+    first_air_date: media.first_air_date ?? null,
+    character: media.character ?? null,
+    job: media.job ?? null,
+    });
+
+    const acted_in_trimmed = {
+        cast: (acted_in.cast || []).map(trimCredit),
+        crew: (acted_in.crew || []).map(trimCredit),
+    };
+
     return {
         props: {
             person,
-            acted_in
+            acted_in: acted_in_trimmed
         },
         revalidate: 3600
     }

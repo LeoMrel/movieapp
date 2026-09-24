@@ -50,25 +50,17 @@ export async function getStaticProps({params}) {
 };
 
 export async function getStaticPaths() {
-    const urls = [];
-    for(let i=1; i <= 100; i++) {
-        urls.push(fetch(`${process.env.MOVIE_POPULAR_URL}&page=${i}`))
-    };
+    const res = await fetch(`${process.env.MOVIE_POPULAR_URL}&page=1`)
+    const data = await res.json()
 
-   const res = await Promise.all(urls)
-   const data = res.map(async result => await result.json())
-   const pages = await Promise.all(data)
-
-    let movies_ids = pages.reduce((pV, cV) => {
-        const id = cV.results.map(movie => movie.id)
-        pV.push(...id)
-        return pV;
-    }, [])
+    const movies_ids = data.results
+        .slice(0, 5)
+        .map(movie => movie.id)
 
     const paths = movies_ids.map(id => ({
        params: {movie_id: `${id}`}
    }))
-   
+
   return {
      paths,
      fallback: "blocking"
