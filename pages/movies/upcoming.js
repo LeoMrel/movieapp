@@ -19,8 +19,8 @@ const UpcomingMoviesPage = ({data, url}) => {
 export default UpcomingMoviesPage;
 
 export async function getStaticProps() {
-    const url = `${process.env.UPCOMING_MOVIES}&page=1&region=us`
-    const res = await fetch(url)
+    const url = `${process.env.UPCOMING_MOVIES}&region=us`;
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
     
     return {

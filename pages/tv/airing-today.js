@@ -17,8 +17,8 @@ const AiringTodayPage = ({data, url}) => {
 export default AiringTodayPage
 
 export async function getStaticProps() {
-    const url = `${process.env.AIRING_TODAY}&page=1`
-    const res = await fetch(url)
+    const url = `${process.env.AIRING_TODAY}`;
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

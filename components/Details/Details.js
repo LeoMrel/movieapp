@@ -81,7 +81,9 @@ const Details = ({data}) => {
                         <iframe
                         width="420"
                         height="280" 
-                        src={`${process.env.NEXT_PUBLIC_YOUTUBE + trailer.key}`} />
+                        src={`${process.env.NEXT_PUBLIC_YOUTUBE + trailer.key}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen />
                     </div>
                 )
             })}
@@ -114,7 +116,7 @@ const Details = ({data}) => {
                                 {mediaScore}
                             </div>
                         <Image 
-                        src={media.backdrop_path ? `${process.env.NEXT_PUBLIC_RECOMMENDED + media.backdrop_path}` : default_movie}
+                        src={media.backdrop_path ? `${process.env.NEXT_PUBLIC_IMAGE_URL + media.backdrop_path}` : default_movie}
                         alt="Actor Poster"
                         className="rounded-xl"
                         width="250"

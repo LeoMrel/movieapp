@@ -17,8 +17,8 @@ const OnTvPage = ({data, url}) => {
 export default OnTvPage
 
 export async function getStaticProps() {
-    const url = `${process.env.UPCOMING_SHOWS}&page=1`
-    const res = await fetch(url)
+    const url = `${process.env.UPCOMING_SHOWS}`;
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

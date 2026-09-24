@@ -19,8 +19,8 @@ export default PopularMoviesPage
 
 
 export async function getStaticProps(context) {
-    const url = `${process.env.MOVIE_POPULAR_URL}&sort_by=popularity.desc&page=1`;
-    const res = await fetch(url)
+    const url = `${process.env.MOVIE_POPULAR_URL}&sort_by=popularity.desc`;
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

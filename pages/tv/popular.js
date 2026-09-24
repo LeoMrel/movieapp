@@ -17,8 +17,8 @@ const PopularShowsPage = ({data, url}) => {
 export default PopularShowsPage
 
 export async function getStaticProps() {
-    const url = `${process.env.TV_POPULAR_URL}&sort_by=popularity.desc&page=1`
-    const res = await fetch(url)
+    const url = `${process.env.TV_POPULAR_URL}&sort_by=popularity.desc`
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

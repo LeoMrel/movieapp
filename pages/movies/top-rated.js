@@ -19,8 +19,8 @@ const TopRatedMoviesPage = ({data, url}) => {
 export default TopRatedMoviesPage;
 
 export async function getStaticProps() {
-    const url = `${process.env.TOP_RATED_MOVIES}&page=1`
-    const res = await fetch(url)
+    const url = `${process.env.TOP_RATED_MOVIES}`
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

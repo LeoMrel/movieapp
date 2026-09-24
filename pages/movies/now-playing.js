@@ -17,8 +17,8 @@ const NowPlayingPage = ({data, url}) => {
 export default NowPlayingPage;
 
 export async function getStaticProps() {
-    const url = `${process.env.IN_THEATERS}&page=1`
-    const res = await fetch(url)
+    const url = `${process.env.IN_THEATERS}`;
+    const res = await fetch(`${url}&page=1`);
     const data = await res.json();
 
     return {

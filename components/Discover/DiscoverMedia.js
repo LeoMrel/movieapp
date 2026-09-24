@@ -98,12 +98,13 @@ const Discover = ({json, urls, thereIsError, query}) => {
                             <h1>{thereIsError || "There are no results for this keyword..."}</h1>
                         </div>
                     : results && results.map(object => {
-                            return (
-                                <SearchResults 
-                                key={object.id} 
-                                object={object}
-                                state={results} />
-                                )})}
+                        return (
+                            <SearchResults 
+                            key={object.id} 
+                            object={object}
+                            state={results}
+                            typeOfSearch={isMovie ? "movie" : "tv"} />
+                        )})}
                     </div>
                    {(thereIsData ? isMovie ? discover_movies.total_pages : discover_shows.total_pages : null) > count.current &&
                     <button 
